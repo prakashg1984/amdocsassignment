@@ -1,0 +1,1 @@
+create table PROFILE (USER_NAME varchar2(100), ADDRESS varchar2(100), PHONE_NUMBER varchar2(100));

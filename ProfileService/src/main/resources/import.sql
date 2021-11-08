@@ -1,0 +1,1 @@
+insert into PROFILE (USER_NAME,ADDRESS,PHONE_NUMBER) values ('amdocs_user','Amdocs Address Line1','1231231234');
