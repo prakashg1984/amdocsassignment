@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    
+    <form th:action="@{/logout}" method="get" th:object="${profile}">
+    		<tr>
+        			<div th:if="${message}" style="color:green;font-style:italic;">
+			           <span th:text=" ${message}"></span>
+			           <td><input type="submit" value="Log Out"/></td>
+			   		 </div>
+        		</tr>
+     </form>
+     <br><br>	
+     <label th:text="'Enter Profile Information'"></label>
+     <br>
+    <form th:action="@{/addProfile}" method="post" th:object="${profile}" >
+        	<table width="65%" cellspacing="2px" style="border-spacing: 10px;">
+        		<tr>
+        			<td width="30%">Address :</td>
+        			<td width="5%"></td>
+        			<td width="30%"><input type="text" th:field="*{address}"/></td>
+        		</tr>
+        		
+        		<tr>
+        			<td width="30%">Phone Number :</td>
+        			<td width="5%"></td>
+        			<td width="30%"><input type="text" th:field="*{phoneNumber}"/></td>
+        		</tr>
+        		
+        		<tr>
+        			<td width="30%" align="right">
+        			<div th:if="${updateFlow}">
+        				<div><button type="submit" formaction="/assignment/updateProfile">Update Profile</button></div>
+        			</div>
+        			<div th:unless="${updateFlow}">
+        				<div><input type="submit" value="Add Profile"/></div>
+        			</div>
+        			</td>
+        			<td width="5%">
+        			</td>
+        			<td width="30%" align="left">
+        				<div><button type="submit" formaction="/assignment/deleteProfile">Delete Profile</button></div>
+        			</td>
+        		</tr>
+        		
+        		<tr>
+        			<td align="center">
+	        			<div th:if="${profileMessage}" style="color:green;font-style:italic;">
+				           <span th:text=" ${profileMessage}"></span>
+				   		 </div>
+			   		 </td>
+        		</tr>
+        	</table>
+            
+        </form>
+    
+</body>
+</html>
